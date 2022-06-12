@@ -6,6 +6,44 @@
         xmlns:local="clr-namespace:railwayDatabase.Windows"
         mc:Ignorable="d"
         Title="PlaceWindow1" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="HaverColor">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                <Setter Property="Button.Background" Value="Firebrick"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Setter Property="Background" Value="Crimson" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="10"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseCaptured" 
+                          Value="True">
+                                <Setter Property="Background" 
+                           Value="Firebrick"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
@@ -33,15 +71,15 @@
             <RowDefinition Height="0.12*"/>
             <RowDefinition Height="0.05*"/>
         </Grid.RowDefinitions>
-        <Button Name="DeleteButton" Content="Удалить" Grid.Column="1" Grid.Row="1" Click="DeleteButton_Click"/>
-        <Button Name="BackButton" Content="Назад" Grid.Column="11" Grid.Row="1" Click="BackButton_Click"/>
-        <Button Name="CahngeButton" Content="Редактировать/" Grid.Column="1" Grid.Row="5" Click="CahngeButton_Click"/>
-        <Button Name="CreateButton" Content="/Создать" Grid.Column="1" Grid.Row="7" Margin="0,0.2" Click="CreateButton_Click"/>
-        <ComboBox Name="RailwayCarriageIdBox" DisplayMemberPath="RailwayCarriageId" Grid.Column="3" Grid.Row="5" Grid.RowSpan="3"/>
-        <TextBox Name="PlaceLocationBox" Grid.Column="5" Grid.Row="5" Grid.RowSpan="3" TextWrapping="Wrap"/>
-        <TextBox Name="PlaceTypeBox" Grid.Column="7" Grid.Row="5" Grid.RowSpan="3" TextWrapping="Wrap"/>
-        <TextBox Name="PlacePriceBox" Grid.Column="9" Grid.Row="5" Grid.RowSpan="3" TextWrapping="Wrap"/>
-        <DataGrid Name="PlaceGrid" SelectionChanged="PlaceGrid_SelectionChanged"  AutoGenerateColumns="False" Grid.ColumnSpan="11" Grid.Column="1" Grid.Row="3">
+        <Button Name="DeleteButton" Content="Удалить" Grid.Column="1" Grid.Row="1" FontFamily="Lucida Sans Unicode" FontSize="15" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White" Click="DeleteButton_Click"/>
+        <Button Name="BackButton" Content="Назад" Grid.Column="11" Grid.Row="1" Click="BackButton_Click" FontFamily="Lucida Sans Unicode" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White" FontSize="15"/>
+        <Button Name="CahngeButton" Content="Редактировать/" Grid.Column="1" Grid.Row="5" Click="CahngeButton_Click" FontFamily="Lucida Sans Unicode" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White" FontSize="10"/>
+        <Button Name="CreateButton" Content="/Создать" Grid.Column="1" Grid.Row="7" Margin="0,0.2" Click="CreateButton_Click" FontFamily="Lucida Sans Unicode" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White" FontSize="10"/>
+        <ComboBox Name="RailwayCarriageIdBox" DisplayMemberPath="RailwayCarriageId" Grid.Column="3" Grid.Row="5" Grid.RowSpan="3" FontFamily="Lucida Sans Unicode" FontSize="10"/>
+        <TextBox Name="PlaceLocationBox" Grid.Column="5" Grid.Row="5" Grid.RowSpan="3" TextWrapping="Wrap" FontFamily="Lucida Sans Unicode" FontSize="10"/>
+        <TextBox Name="PlaceTypeBox" Grid.Column="7" Grid.Row="5" Grid.RowSpan="3" TextWrapping="Wrap" FontFamily="Lucida Sans Unicode" FontSize="10"/>
+        <TextBox Name="PlacePriceBox" Grid.Column="9" Grid.Row="5" Grid.RowSpan="3" TextWrapping="Wrap" FontFamily="Lucida Sans Unicode" FontSize="10"/>
+        <DataGrid Name="PlaceGrid" SelectionChanged="PlaceGrid_SelectionChanged"  AutoGenerateColumns="False" Grid.ColumnSpan="11" Grid.Column="1" Grid.Row="3" FontFamily="Lucida Sans Unicode" FontSize="11">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding PlaceId}" Width="0.1*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Номер вагона" Binding="{Binding RailwayCarriageId}" Width="0.1*"></DataGridTextColumn>
@@ -51,7 +89,7 @@
                 <DataGridTextColumn Header="Занятость места" Binding="{Binding PlaceAvail}" Width="0.1*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox Name="PlaceAvailBox" Grid.Column="11" Grid.Row="5" Grid.RowSpan="3" TextWrapping="Wrap"/>
-        <TextBlock Grid.Column="3" Grid.Row="1" TextWrapping="Wrap" Text="Окно создания, редактирования и удаления мест" Grid.ColumnSpan="7"/>
+        <TextBox Name="PlaceAvailBox" Grid.Column="11" Grid.Row="5" Grid.RowSpan="3" TextWrapping="Wrap" FontFamily="Lucida Sans Unicode" FontSize="10"/>
+        <TextBlock Grid.Column="3" Grid.Row="1" TextWrapping="Wrap" Text="Окно создания, редактирования и удаления мест" FontFamily="Lucida Sans Unicode" FontSize="20" Grid.ColumnSpan="7"/>
     </Grid>
 </Window>

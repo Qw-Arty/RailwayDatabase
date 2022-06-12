@@ -6,6 +6,44 @@
         xmlns:local="clr-namespace:railwayDatabase"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="HaverColor">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                <Setter Property="Button.Background" Value="Firebrick"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Setter Property="Background" Value="Crimson" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="10"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseCaptured" 
+                          Value="True">
+                                <Setter Property="Background" 
+                           Value="Firebrick"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"></ColumnDefinition>
@@ -29,11 +67,11 @@
             <RowDefinition Height="0.6*"></RowDefinition>
             <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
-        <ComboBox Name="StartStationBox" DisplayMemberPath="StationLocality" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1"/>
-        <Button Name="SearchButton" Grid.ColumnSpan="3" Content="Искать" Grid.Column="4" Grid.Row="3" RenderTransformOrigin="0.533,2.281" Click="SearchButton_Click"/>
-        <Button Name="AdminButton" Content="Админ панель" Grid.Column="4" Grid.Row="5" Click="AdminButton_Click"/>
-        <Button Name="ProgramInfo" Content="О программе" Grid.Column="6" Grid.Row="5" Click="ProgramInfo_Click"/>
-        <ComboBox Name="EndStationBox" DisplayMemberPath="StationLocality" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1"/>
+        <ComboBox Name="StartStationBox" DisplayMemberPath="StationLocality" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" FontFamily="Lucida Sans Unicode" FontSize="15" Background="Crimson"/>
+        <Button  Name="SearchButton" Grid.ColumnSpan="3" Content="Искать" FontFamily="Lucida Sans Unicode" FontSize="30" Grid.Column="4" Grid.Row="3" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White" Click="SearchButton_Click"/>
+        <Button Name="AdminButton" Content="Админ панель" FontFamily="Lucida Sans Unicode" FontSize="15" Grid.Column="4" Grid.Row="5" Click="AdminButton_Click" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White"/>
+        <Button Name="ProgramInfo" Content="О программе" FontFamily="Lucida Sans Unicode" FontSize="15" Grid.Column="6" Grid.Row="5" Click="ProgramInfo_Click" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White"/>
+        <ComboBox Name="EndStationBox" DisplayMemberPath="StationLocality" Grid.Column="6" Grid.ColumnSpan="3" Grid.Row="1" FontFamily="Lucida Sans Unicode" FontSize="15" Background="Crimson"/>
     </Grid>
 
 </Window>

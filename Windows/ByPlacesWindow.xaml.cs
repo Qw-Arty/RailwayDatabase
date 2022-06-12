@@ -64,7 +64,7 @@ namespace railwayDatabase.Windows
             {
                 LocationPlaceBox.Text = place.PlaceLocation.ToString();
                 TypePlaceBox.Text = place.PlaceType.ToString();
-                PricePlaceBox.Text = place.PlacePrice.ToString();
+                PricePlaceBox.Text = ($"{place.PlacePrice.ToString()} р");
             }
         }
 

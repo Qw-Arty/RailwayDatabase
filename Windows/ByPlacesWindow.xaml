@@ -6,6 +6,44 @@
         xmlns:local="clr-namespace:railwayDatabase.Windows"
         mc:Ignorable="d"
         Title="ByPlacesWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="HaverColor">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                <Setter Property="Button.Background" Value="Firebrick"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Setter Property="Background" Value="Crimson" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="10"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseCaptured" 
+                          Value="True">
+                                <Setter Property="Background" 
+                           Value="Firebrick"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.05*"/>
@@ -34,15 +72,15 @@
             <RowDefinition Height="0.05*"/>
             <RowDefinition Height="0.05*"/>
         </Grid.RowDefinitions>
-        <Button Name="BackButton" Content="Назад" Grid.Column="9" Grid.Row="1" Click="BackButton_Click"/>
-        <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Покупка билета" Grid.ColumnSpan="7" Grid.Column="1"/>
-        <Button Name="ByPlaceButton" Content="Купить" Grid.Column="5" Grid.Row="8" Click="ByPlaceButton_Click"/>
-        <TextBlock Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" Text="Выберите номер места"/>
-        <TextBlock Name="LocationPlaceBox" Grid.Column="5" Grid.Row="5" TextWrapping="Wrap"/>
-        <TextBlock Name="TypePlaceBox" Grid.Column="7" Grid.Row="5" TextWrapping="Wrap"/>
-        <TextBlock Name="PricePlaceBox" Grid.Column="9" Grid.Row="5" TextWrapping="Wrap"/>
+        <Button Name="BackButton" Content="Назад" FontFamily="Lucida Sans Unicode" FontSize="20" Grid.Column="9" Grid.Row="1" Click="BackButton_Click" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White"/>
+        <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Покупка билета" FontFamily="Lucida Sans Unicode" FontSize="20" Grid.ColumnSpan="7" Grid.Column="1"/>
+        <Button Name="ByPlaceButton" Content="Купить" FontFamily="Lucida Sans Unicode" FontSize="20" Grid.Column="5" Grid.Row="8" Click="ByPlaceButton_Click" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White"/>
+        <TextBlock Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" Text="Выберите номер места" FontFamily="Lucida Sans Unicode" FontSize="13"/>
+        <TextBlock Name="LocationPlaceBox" Grid.Column="5" Grid.Row="5" TextWrapping="Wrap" FontFamily="Lucida Sans Unicode" FontSize="15"/>
+        <TextBlock Name="TypePlaceBox" Grid.Column="7" Grid.Row="5" TextWrapping="Wrap" FontFamily="Lucida Sans Unicode" FontSize="15"/>
+        <TextBlock Name="PricePlaceBox" Grid.Column="9" Grid.Row="5" TextWrapping="Wrap" FontFamily="Lucida Sans Unicode" FontSize="15"/>
         <ComboBox Name="PlaceNumberBox" DisplayMemberPath="PlaceId" Grid.Column="3" Grid.Row="5" SelectionChanged="PlaceNumberBox_SelectionChanged"/>
-        <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="Выберите вагон"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="Выберите вагон" FontFamily="Lucida Sans Unicode" FontSize="13"/>
         <ComboBox Name="RailwayCarriageBox" DisplayMemberPath="RailwayCarriageId" Grid.Column="1" Grid.Row="5" SelectionChanged="RailwayCarriageBox_SelectionChanged"/>
 
     </Grid>

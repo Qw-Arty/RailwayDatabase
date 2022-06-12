@@ -6,6 +6,44 @@
         xmlns:local="clr-namespace:railwayDatabase.Windows"
         mc:Ignorable="d"
         Title="RailwagCarriageWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="HaverColor">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                <Setter Property="Button.Background" Value="Firebrick"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Button" x:Key="RoundButton">
+            <Setter Property="Background" Value="Crimson" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="10"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                               VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseCaptured" 
+                          Value="True">
+                                <Setter Property="Background" 
+                           Value="Firebrick"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*"/>
@@ -27,14 +65,14 @@
             <RowDefinition Height="0.12*"/>
             <RowDefinition Height="0.05*"/>
         </Grid.RowDefinitions>
-        <Button Name="DeleteButton" Content="Туда ее" Grid.Column="1" Grid.Row="1" Click="DeleteButton_Click"/>
-        <Button Name="BackButton" Content="Назад" Grid.Column="5" Grid.Row="1" Click="BackButton_Click"/>
-        <Button Name="ChangeButton" Content="Редактировать/" Grid.Column="1" Grid.Row="5" Click="ChangeButton_Click"/>
-        <Button Name="CreateButton" Content="/Создать" Grid.Column="1" Grid.Row="7" Click="CreateButton_Click"/>
-        <ComboBox Name="TrainIdBox" DisplayMemberPath="TrainId" Grid.Column="3" Grid.Row="5" Grid.RowSpan="3"/>
-        <TextBox Name="RoomBox" Grid.Column="5" Grid.Row="5" Grid.RowSpan="3" TextWrapping="Wrap"/>
-        <TextBlock Grid.Column="3" Grid.Row="1" TextWrapping="Wrap" Text="Окно создания, редактирования и удаления вагонов"/>
-        <DataGrid Name="RailwagCarriageGrid" SelectionChanged="RailwagCarriageGrid_SelectionChanged"  AutoGenerateColumns="False" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="5">
+        <Button Name="DeleteButton" Content="Туда ее" Grid.Column="1" Grid.Row="1" Click="DeleteButton_Click" FontFamily="Lucida Sans Unicode" FontSize="20" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White"/>
+        <Button Name="BackButton" Content="Назад" Grid.Column="5" Grid.Row="1" Click="BackButton_Click" FontFamily="Lucida Sans Unicode" FontSize="20" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White"/>
+        <Button Name="ChangeButton" Content="Редактировать/" Grid.Column="1" Grid.Row="5" Click="ChangeButton_Click" FontFamily="Lucida Sans Unicode" FontSize="15" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White"/>
+        <Button Name="CreateButton" Content="/Создать" Grid.Column="1" Grid.Row="7" Click="CreateButton_Click" FontFamily="Lucida Sans Unicode" FontSize="15" Style="{StaticResource RoundButton}" Background="Crimson" Foreground="White"/>
+        <ComboBox Name="TrainIdBox" DisplayMemberPath="TrainId" Grid.Column="3" Grid.Row="5" Grid.RowSpan="3" FontFamily="Lucida Sans Unicode" FontSize="15"/>
+        <TextBox Name="RoomBox" Grid.Column="5" Grid.Row="5" Grid.RowSpan="3" TextWrapping="Wrap" FontFamily="Lucida Sans Unicode" FontSize="15"/>
+        <TextBlock Grid.Column="3" Grid.Row="1" TextWrapping="Wrap" Text="Окно создания, редактирования и удаления вагонов" FontFamily="Lucida Sans Unicode" FontSize="15"/>
+        <DataGrid Name="RailwagCarriageGrid" SelectionChanged="RailwagCarriageGrid_SelectionChanged"  AutoGenerateColumns="False" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="5" FontFamily="Lucida Sans Unicode" FontSize="15">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding RailwayCarriageId}" Width="0.1*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Номер поезда" Binding="{Binding TrainId}" Width="0.2*"></DataGridTextColumn>
