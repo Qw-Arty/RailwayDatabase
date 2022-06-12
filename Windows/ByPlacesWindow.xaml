@@ -1,0 +1,49 @@
+﻿<Window x:Class="railwayDatabase.Windows.ByPlacesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:railwayDatabase.Windows"
+        mc:Ignorable="d"
+        Title="ByPlacesWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.05*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.05*"/>
+        </Grid.RowDefinitions>
+        <Button Name="BackButton" Content="Назад" Grid.Column="9" Grid.Row="1" Click="BackButton_Click"/>
+        <TextBlock Grid.Row="1" TextWrapping="Wrap" Text="Покупка билета" Grid.ColumnSpan="7" Grid.Column="1"/>
+        <Button Name="ByPlaceButton" Content="Купить" Grid.Column="5" Grid.Row="8" Click="ByPlaceButton_Click"/>
+        <TextBlock Grid.Column="3" Grid.Row="3" TextWrapping="Wrap" Text="Выберите номер места"/>
+        <TextBlock Name="LocationPlaceBox" Grid.Column="5" Grid.Row="5" TextWrapping="Wrap"/>
+        <TextBlock Name="TypePlaceBox" Grid.Column="7" Grid.Row="5" TextWrapping="Wrap"/>
+        <TextBlock Name="PricePlaceBox" Grid.Column="9" Grid.Row="5" TextWrapping="Wrap"/>
+        <ComboBox Name="PlaceNumberBox" DisplayMemberPath="PlaceId" Grid.Column="3" Grid.Row="5" SelectionChanged="PlaceNumberBox_SelectionChanged"/>
+        <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="Выберите вагон"/>
+        <ComboBox Name="RailwayCarriageBox" DisplayMemberPath="RailwayCarriageId" Grid.Column="1" Grid.Row="5" SelectionChanged="RailwayCarriageBox_SelectionChanged"/>
+
+    </Grid>
+</Window>

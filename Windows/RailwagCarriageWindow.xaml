@@ -1,0 +1,45 @@
+﻿<Window x:Class="railwayDatabase.Windows.RailwagCarriageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:railwayDatabase.Windows"
+        mc:Ignorable="d"
+        Title="RailwagCarriageWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.12*"/>
+            <RowDefinition Height="0.02*"/>
+            <RowDefinition Height="0.12*"/>
+            <RowDefinition Height="0.05*"/>
+        </Grid.RowDefinitions>
+        <Button Name="DeleteButton" Content="Туда ее" Grid.Column="1" Grid.Row="1" Click="DeleteButton_Click"/>
+        <Button Name="BackButton" Content="Назад" Grid.Column="5" Grid.Row="1" Click="BackButton_Click"/>
+        <Button Name="ChangeButton" Content="Редактировать/" Grid.Column="1" Grid.Row="5" Click="ChangeButton_Click"/>
+        <Button Name="CreateButton" Content="/Создать" Grid.Column="1" Grid.Row="7" Click="CreateButton_Click"/>
+        <ComboBox Name="TrainIdBox" DisplayMemberPath="TrainId" Grid.Column="3" Grid.Row="5" Grid.RowSpan="3"/>
+        <TextBox Name="RoomBox" Grid.Column="5" Grid.Row="5" Grid.RowSpan="3" TextWrapping="Wrap"/>
+        <TextBlock Grid.Column="3" Grid.Row="1" TextWrapping="Wrap" Text="Окно создания, редактирования и удаления вагонов"/>
+        <DataGrid Name="RailwagCarriageGrid" SelectionChanged="RailwagCarriageGrid_SelectionChanged"  AutoGenerateColumns="False" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="5">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding RailwayCarriageId}" Width="0.1*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер поезда" Binding="{Binding TrainId}" Width="0.2*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер комнаты" Binding="{Binding RailwayCarriageRoom}" Width="0.2*"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
