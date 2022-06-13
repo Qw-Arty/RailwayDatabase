@@ -145,6 +145,11 @@ namespace railwayDatabase.Windows
             railwayCarriage.TrainId = trainId;
             railwayCarriage.RailwayCarriageRoom = room;
 
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
             try
             {
                 RailwayContext.GetContext().RailwayCarriages.Add(railwayCarriage);
